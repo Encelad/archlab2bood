@@ -63,10 +63,12 @@ func (gb *goBinaryModuleType) GenerateBuildActions(ctx blueprint.ModuleContext) 
 	outputPath := path.Join(config.BaseOutputDir, "bin", name)
 
 	var inputs []string
+	var testInputs []string
 	inputErors := false
 	for _, src := range gb.properties.Srcs {
 		if matches, err := ctx.GlobWithDeps(src, gb.properties.SrcsExclude); err == nil {
 			inputs = append(inputs, matches...)
+			testInputs = append(testInputs, matches...)
 		} else {
 			ctx.PropertyErrorf("srcs", "Cannot resolve files that match pattern %s", src)
 			inputErors = true

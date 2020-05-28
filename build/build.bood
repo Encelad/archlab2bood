@@ -4,7 +4,7 @@ go_binary {
 
   // Go package to build.
   pkg: "github.com/Encelad/archlab2bood/build/cmd/bood",
-
+  TestPkg: "https://github.com/Encelad/archlab2bood/tree/master/build/gomodule", 
   // Build inputs.
   srcs: ["**/*.go", "../go.mod"]
 }
