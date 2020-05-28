@@ -1,10 +1,10 @@
-go_binary {
-  // Module (and output) name.
-  name: "bood",
-
-  // Go package to build.
+go_binary { 
+  name: "bood", 
+  
   pkg: "github.com/Encelad/archlab2bood/build/cmd/bood",
-  TestPkg: "https://github.com/Encelad/archlab2bood/tree/master/build/gomodule", 
-  // Build inputs.
-  srcs: ["**/*.go", "../go.mod"]
+  testPkg: "./...",
+  outTestFile: "test.txt",
+
+  srcs: ["**/*.go", "../go.mod"],
+  srcsExclude: ["**/*_test.go"]
 }
